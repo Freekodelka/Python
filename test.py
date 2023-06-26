@@ -37,3 +37,14 @@ if (year % 4 == 0 and year % 100 != 0) or (year % 400 ==0):
     print('Год високосный!')
 else:
     print('Год не является високосным!') """
+
+ 
+
+# Найти сумму чисел любого числа
+""" n = int(input('Insert number: '))
+summa = 0
+while n > 0:
+    ost = n % 10
+    n = n // 10
+    summa += ost
+print(summa) """

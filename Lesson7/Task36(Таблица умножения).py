@@ -8,7 +8,7 @@
 def operation_table(operation, num_rows, num_columns):
     for row in range(1, num_rows + 1):
         for col in range(1, num_columns + 1):
-            print(operation(row, col), end="\t")
+            print(operation(row, col), end="\t") #Аргумент end определяет символ, который будет добавлен в конец строки после печати переданных аргументов.
         print()
         
 

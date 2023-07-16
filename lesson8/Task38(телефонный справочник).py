@@ -14,11 +14,15 @@ def write_file(filename, data):
     with open(filename, 'a', encoding='utf-8') as file:
         file.write(data)
 
-def delete_user(phone_book, surname):       
-    for user in phone_book:
-        if user[0] == surname:
-            phone_book.remove(user)
-    return phone_book
+def delete_user(filename, surname):  
+    new_phone_book = []               
+    for user in filename:
+        if user[0] != surname:
+            new_phone_book.append(user)                
+    with open(filename, 'w', encoding='utf-8') as f:
+        for users in new_phone_book:
+            f.write(f'{users[0]}{users[1]}{users[2]}{users[3]}\n')            
+        return new_phone_book 
 
 def find_names(phone_book, surname):
     result = []
@@ -43,7 +47,6 @@ def menu():
         elif n == 1:
             for user in sorted(phone_book):
                 print(f'{user[0]} {user[1]} {user[2]} {user[3]}')
-            break
 
         elif n == 2:
             surname = input('Введите фамилию: ')
@@ -64,10 +67,10 @@ def menu():
             
         elif n == 4:
             surname = input('Введите фамилию: ')
-            phone_book = delete_user(phone_book, surname)
+            new_phone_book = delete_user(filename, surname)            
         else:
             print('Такого пользователя не существует')
-        
+
 
 if __name__ == '__main__':
     menu()
